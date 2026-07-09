@@ -924,7 +924,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "9";
+	app.meta.h["build"] = "10";
 	app.meta.h["company"] = "mickey mouse";
 	app.meta.h["file"] = "Mousecapade";
 	app.meta.h["name"] = "Mousecapade";
@@ -5491,7 +5491,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		this.mickeySound = flixel_FlxG.sound.load("assets/sounds/scream.ogg");
 		this.mickeySound.play();
 		flixel_FlxG.camera.shake();
-		new flixel_util_FlxTimer().start(1,function(tmr) {
+		new flixel_util_FlxTimer().start(this.time,function(tmr) {
 			_gthis.remove(_gthis.popUp);
 		});
 	}
@@ -75630,7 +75630,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 858174;
+	this.version = 77486;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
