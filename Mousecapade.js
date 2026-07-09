@@ -924,7 +924,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "7";
+	app.meta.h["build"] = "9";
 	app.meta.h["company"] = "mickey mouse";
 	app.meta.h["file"] = "Mousecapade";
 	app.meta.h["name"] = "Mousecapade";
@@ -3580,7 +3580,7 @@ openfl_display_Sprite.prototype = $extend(openfl_display_DisplayObjectContainer.
 });
 var Main = function() {
 	openfl_display_Sprite.call(this);
-	this.addChild(new flixel_FlxGame(0,0,PlayState));
+	this.addChild(new flixel_FlxGame(0,0,MainMenuState));
 };
 $hxClasses["Main"] = Main;
 Main.__name__ = "Main";
@@ -3747,400 +3747,6 @@ HxOverrides.keyValueIter = function(a) {
 HxOverrides.now = function() {
 	return Date.now();
 };
-var IntIterator = function(min,max) {
-	this.min = min;
-	this.max = max;
-};
-$hxClasses["IntIterator"] = IntIterator;
-IntIterator.__name__ = "IntIterator";
-IntIterator.prototype = {
-	min: null
-	,max: null
-	,hasNext: function() {
-		return this.min < this.max;
-	}
-	,next: function() {
-		return this.min++;
-	}
-	,__class__: IntIterator
-};
-var Lambda = function() { };
-$hxClasses["Lambda"] = Lambda;
-Lambda.__name__ = "Lambda";
-Lambda.array = function(it) {
-	var a = [];
-	var i = $getIterator(it);
-	while(i.hasNext()) {
-		var i1 = i.next();
-		a.push(i1);
-	}
-	return a;
-};
-var ManifestResources = function() { };
-$hxClasses["ManifestResources"] = ManifestResources;
-ManifestResources.__name__ = "ManifestResources";
-ManifestResources.preloadLibraries = null;
-ManifestResources.preloadLibraryNames = null;
-ManifestResources.rootPath = null;
-ManifestResources.init = function(config) {
-	ManifestResources.preloadLibraries = [];
-	ManifestResources.preloadLibraryNames = [];
-	ManifestResources.rootPath = null;
-	if(config != null && Object.prototype.hasOwnProperty.call(config,"rootPath")) {
-		ManifestResources.rootPath = Reflect.field(config,"rootPath");
-		if(!StringTools.endsWith(ManifestResources.rootPath,"/")) {
-			ManifestResources.rootPath += "/";
-		}
-	}
-	if(ManifestResources.rootPath == null) {
-		ManifestResources.rootPath = "./";
-	}
-	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
-	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
-	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R7R6tgoR0y40:assets%2Fimages%2Fitems%2Fbluecheese.pngR2i2635R3y5:IMAGER5R8R6tgoR0y36:assets%2Fimages%2Fitems%2Fcheese.pngR2i5333R3R9R5R10R6tgoR0y39:assets%2Fimages%2Fitems%2Fredcheese.pngR2i2588R3R9R5R11R6tgoR0y28:assets%2Fimages%2Fplayer.pngR2i25412R3R9R5R12R6tgoR0y37:assets%2Fimages%2Fpopups%2Fdonald.pngR2i531885R3R9R5R13R6tgoR0y37:assets%2Fimages%2Fpopups%2Ffeedme.pngR2i243972R3R9R5R14R6tgoR0y37:assets%2Fimages%2Fpopups%2Fquiddy.pngR2i221991R3R9R5R15R6tgoR0y38:assets%2Fimages%2Fpopups%2Frevenge.pngR2i318731R3R9R5R16R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R17R6tgoR2i3872280R3y5:MUSICR5y32:assets%2Fmusic%2Fwelcome-old.oggy9:pathGroupaR19hR6tgoR2i40900R3y5:SOUNDR5y34:assets%2Fsounds%2Fmickey-mouse.oggR20aR22hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R23R6tgoR2i8220R3R18R5y26:flixel%2Fsounds%2Fbeep.mp3R20aR24y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R18R5y28:flixel%2Fsounds%2Fflixel.mp3R20aR26y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i6840R3R21R5R25R20aR24R25hgoR2i33629R3R21R5R27R20aR26R27hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R28R29y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i199R3R9R5R34R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i490R3R9R5R35R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
-	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
-	var library = lime_utils_AssetLibrary.fromManifest(manifest);
-	lime_utils_Assets.registerLibrary("default",library);
-	library = lime_utils_Assets.getLibrary("default");
-	if(library != null) {
-		ManifestResources.preloadLibraries.push(library);
-	} else {
-		ManifestResources.preloadLibraryNames.push("default");
-	}
-};
-var lime_text_Font = function(name) {
-	if(name != null) {
-		this.name = name;
-	}
-	if(!this.__init) {
-		if(this.ascender == undefined) {
-			this.ascender = 0;
-		}
-		if(this.descender == undefined) {
-			this.descender = 0;
-		}
-		if(this.height == undefined) {
-			this.height = 0;
-		}
-		if(this.numGlyphs == undefined) {
-			this.numGlyphs = 0;
-		}
-		if(this.underlinePosition == undefined) {
-			this.underlinePosition = 0;
-		}
-		if(this.underlineThickness == undefined) {
-			this.underlineThickness = 0;
-		}
-		if(this.unitsPerEM == undefined) {
-			this.unitsPerEM = 0;
-		}
-		if(this.__fontID != null) {
-			if(lime_utils_Assets.isLocal(this.__fontID)) {
-				this.__fromBytes(lime_utils_Assets.getBytes(this.__fontID));
-			}
-		} else if(this.__fontPath != null) {
-			this.__fromFile(this.__fontPath);
-		}
-	}
-};
-$hxClasses["lime.text.Font"] = lime_text_Font;
-lime_text_Font.__name__ = "lime.text.Font";
-lime_text_Font.fromBytes = function(bytes) {
-	if(bytes == null) {
-		return null;
-	}
-	var font = new lime_text_Font();
-	font.__fromBytes(bytes);
-	return font;
-};
-lime_text_Font.fromFile = function(path) {
-	if(path == null) {
-		return null;
-	}
-	var font = new lime_text_Font();
-	font.__fromFile(path);
-	return font;
-};
-lime_text_Font.loadFromBytes = function(bytes) {
-	return lime_app_Future.withValue(lime_text_Font.fromBytes(bytes));
-};
-lime_text_Font.loadFromFile = function(path) {
-	var request = new lime_net__$HTTPRequest_$lime_$text_$Font();
-	return request.load(path).then(function(font) {
-		if(font != null) {
-			return lime_app_Future.withValue(font);
-		} else {
-			return lime_app_Future.withError("");
-		}
-	});
-};
-lime_text_Font.loadFromName = function(path) {
-	var font = new lime_text_Font();
-	return font.__loadFromName(path);
-};
-lime_text_Font.__measureFontNode = function(fontFamily) {
-	var node = window.document.createElement("span");
-	node.setAttribute("aria-hidden","true");
-	var text = window.document.createTextNode("BESbswy");
-	node.appendChild(text);
-	var style = node.style;
-	style.display = "block";
-	style.position = "absolute";
-	style.top = "-9999px";
-	style.left = "-9999px";
-	style.fontSize = "300px";
-	style.width = "auto";
-	style.height = "auto";
-	style.lineHeight = "normal";
-	style.margin = "0";
-	style.padding = "0";
-	style.fontVariant = "normal";
-	style.whiteSpace = "nowrap";
-	style.fontFamily = fontFamily;
-	window.document.body.appendChild(node);
-	return node;
-};
-lime_text_Font.prototype = {
-	ascender: null
-	,descender: null
-	,height: null
-	,name: null
-	,numGlyphs: null
-	,src: null
-	,underlinePosition: null
-	,underlineThickness: null
-	,unitsPerEM: null
-	,__fontID: null
-	,__fontPath: null
-	,__init: null
-	,decompose: function() {
-		return null;
-	}
-	,getGlyph: function(character) {
-		return -1;
-	}
-	,getGlyphs: function(characters) {
-		if(characters == null) {
-			characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^`'\"/\\&*()[]{}<>|:;_-+=?,. ";
-		}
-		return null;
-	}
-	,getGlyphMetrics: function(glyph) {
-		return null;
-	}
-	,renderGlyph: function(glyph,fontSize) {
-		return null;
-	}
-	,renderGlyphs: function(glyphs,fontSize) {
-		return null;
-	}
-	,__copyFrom: function(other) {
-		if(other != null) {
-			this.ascender = other.ascender;
-			this.descender = other.descender;
-			this.height = other.height;
-			this.name = other.name;
-			this.numGlyphs = other.numGlyphs;
-			this.src = other.src;
-			this.underlinePosition = other.underlinePosition;
-			this.underlineThickness = other.underlineThickness;
-			this.unitsPerEM = other.unitsPerEM;
-			this.__fontID = other.__fontID;
-			this.__fontPath = other.__fontPath;
-			this.__init = true;
-		}
-	}
-	,__fromBytes: function(bytes) {
-		this.__fontPath = null;
-	}
-	,__fromFile: function(path) {
-		this.__fontPath = path;
-	}
-	,__initializeSource: function() {
-		this.__init = true;
-	}
-	,__loadFromName: function(name) {
-		var _gthis = this;
-		var promise = new lime_app_Promise();
-		this.name = name;
-		var userAgent = $global.navigator.userAgent.toLowerCase();
-		var isSafari = userAgent.indexOf(" safari/") >= 0 && userAgent.indexOf(" chrome/") < 0;
-		var isUIWebView = new EReg("(iPhone|iPod|iPad).*AppleWebKit(?!.*Version)","i").match(userAgent);
-		if(!isSafari && !isUIWebView && (window.document.fonts && ($_=window.document.fonts,$bind($_,$_.load)))) {
-			window.document.fonts.load("1em '" + name + "'").then(function(_) {
-				promise.complete(_gthis);
-			},function(_) {
-				lime_utils_Log.warn("Could not load web font \"" + name + "\"",{ fileName : "lime/text/Font.hx", lineNumber : 515, className : "lime.text.Font", methodName : "__loadFromName"});
-				promise.complete(_gthis);
-			});
-		} else {
-			var node1 = lime_text_Font.__measureFontNode("'" + name + "', sans-serif");
-			var node2 = lime_text_Font.__measureFontNode("'" + name + "', serif");
-			var width1 = node1.offsetWidth;
-			var width2 = node2.offsetWidth;
-			var interval = -1;
-			var timeout = 3000;
-			var intervalLength = 50;
-			var intervalCount = 0;
-			var loaded;
-			var timeExpired;
-			var checkFont = function() {
-				intervalCount += 1;
-				loaded = node1.offsetWidth != width1 || node2.offsetWidth != width2;
-				timeExpired = intervalCount * intervalLength >= timeout;
-				if(loaded || timeExpired) {
-					window.clearInterval(interval);
-					node1.parentNode.removeChild(node1);
-					node2.parentNode.removeChild(node2);
-					node1 = null;
-					node2 = null;
-					if(timeExpired) {
-						lime_utils_Log.warn("Could not load web font \"" + name + "\"",{ fileName : "lime/text/Font.hx", lineNumber : 550, className : "lime.text.Font", methodName : "__loadFromName"});
-					}
-					promise.complete(_gthis);
-				}
-			};
-			interval = window.setInterval(checkFont,intervalLength);
-		}
-		return promise.future;
-	}
-	,__setSize: function(size) {
-	}
-	,__class__: lime_text_Font
-};
-var _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf = $hx_exports["__ASSET__flixel_fonts_nokiafc22_ttf"] = function() {
-	this.ascender = 2048;
-	this.descender = -512;
-	this.height = 2816;
-	this.numGlyphs = 172;
-	this.underlinePosition = -640;
-	this.underlineThickness = 256;
-	this.unitsPerEM = 2048;
-	this.name = "Nokia Cellphone FC Small";
-	lime_text_Font.call(this);
-};
-$hxClasses["__ASSET__flixel_fonts_nokiafc22_ttf"] = _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf;
-_$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf.__name__ = "__ASSET__flixel_fonts_nokiafc22_ttf";
-_$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf.__super__ = lime_text_Font;
-_$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf.prototype = $extend(lime_text_Font.prototype,{
-	__class__: _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf
-});
-var _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf = $hx_exports["__ASSET__flixel_fonts_monsterrat_ttf"] = function() {
-	this.ascender = 968;
-	this.descender = -251;
-	this.height = 1219;
-	this.numGlyphs = 263;
-	this.underlinePosition = -150;
-	this.underlineThickness = 50;
-	this.unitsPerEM = 1000;
-	this.name = "Monsterrat";
-	lime_text_Font.call(this);
-};
-$hxClasses["__ASSET__flixel_fonts_monsterrat_ttf"] = _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf;
-_$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf.__name__ = "__ASSET__flixel_fonts_monsterrat_ttf";
-_$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf.__super__ = lime_text_Font;
-_$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf.prototype = $extend(lime_text_Font.prototype,{
-	__class__: _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf
-});
-var openfl_text_Font = function(name) {
-	lime_text_Font.call(this,name);
-};
-$hxClasses["openfl.text.Font"] = openfl_text_Font;
-openfl_text_Font.__name__ = "openfl.text.Font";
-openfl_text_Font.enumerateFonts = function(enumerateDeviceFonts) {
-	if(enumerateDeviceFonts == null) {
-		enumerateDeviceFonts = false;
-	}
-	return openfl_text_Font.__registeredFonts;
-};
-openfl_text_Font.fromBytes = function(bytes) {
-	var font = new openfl_text_Font();
-	font.__fromBytes(openfl_utils_ByteArray.toBytes(bytes));
-	return font;
-};
-openfl_text_Font.fromFile = function(path) {
-	if(path == null) {
-		return null;
-	}
-	var font = new openfl_text_Font();
-	font.__fromFile(path);
-	return font;
-};
-openfl_text_Font.loadFromBytes = function(bytes) {
-	return lime_text_Font.loadFromBytes(openfl_utils_ByteArray.toBytes(bytes)).then(function(limeFont) {
-		var font = new openfl_text_Font();
-		font.__fromLimeFont(limeFont);
-		return lime_app_Future.withValue(font);
-	});
-};
-openfl_text_Font.loadFromFile = function(path) {
-	return lime_text_Font.loadFromFile(path).then(function(limeFont) {
-		var font = new openfl_text_Font();
-		font.__fromLimeFont(limeFont);
-		return lime_app_Future.withValue(font);
-	});
-};
-openfl_text_Font.loadFromName = function(path) {
-	return lime_text_Font.loadFromName(path).then(function(limeFont) {
-		var font = new openfl_text_Font();
-		font.__fromLimeFont(limeFont);
-		return lime_app_Future.withValue(font);
-	});
-};
-openfl_text_Font.registerFont = function(font) {
-	var instance = null;
-	if(js_Boot.getClass(font) == null) {
-		instance = js_Boot.__cast(Type.createInstance(font,[]) , openfl_text_Font);
-	} else {
-		instance = js_Boot.__cast(font , openfl_text_Font);
-	}
-	if(instance != null) {
-		openfl_text_Font.__registeredFonts.push(instance);
-		openfl_text_Font.__fontByName.h[instance.name] = instance;
-	}
-};
-openfl_text_Font.__super__ = lime_text_Font;
-openfl_text_Font.prototype = $extend(lime_text_Font.prototype,{
-	fontStyle: null
-	,fontType: null
-	,__initialized: null
-	,__fromLimeFont: function(font) {
-		this.__copyFrom(font);
-	}
-	,__initialize: function() {
-		return this.__initialized;
-	}
-	,get_fontName: function() {
-		return this.name;
-	}
-	,set_fontName: function(value) {
-		return this.name = value;
-	}
-	,__class__: openfl_text_Font
-	,__properties__: {set_fontName:"set_fontName",get_fontName:"get_fontName"}
-});
-var _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf = $hx_exports["__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf"] = function() {
-	this.__fromLimeFont(new _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf());
-	openfl_text_Font.call(this);
-};
-$hxClasses["__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf"] = _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf;
-_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf.__name__ = "__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf";
-_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf.__super__ = openfl_text_Font;
-_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf.prototype = $extend(openfl_text_Font.prototype,{
-	__class__: _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf
-});
-var _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf = $hx_exports["__ASSET__OPENFL__flixel_fonts_monsterrat_ttf"] = function() {
-	this.__fromLimeFont(new _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf());
-	openfl_text_Font.call(this);
-};
-$hxClasses["__ASSET__OPENFL__flixel_fonts_monsterrat_ttf"] = _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf;
-_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf.__name__ = "__ASSET__OPENFL__flixel_fonts_monsterrat_ttf";
-_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf.__super__ = openfl_text_Font;
-_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf.prototype = $extend(openfl_text_Font.prototype,{
-	__class__: _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf
-});
-Math.__name__ = "Math";
 var flixel_util_IFlxDestroyable = function() { };
 $hxClasses["flixel.util.IFlxDestroyable"] = flixel_util_IFlxDestroyable;
 flixel_util_IFlxDestroyable.__name__ = "flixel.util.IFlxDestroyable";
@@ -4929,11 +4535,619 @@ flixel_FlxState.prototype = $extend(flixel_group_FlxTypedGroup.prototype,{
 	,__class__: flixel_FlxState
 	,__properties__: $extend(flixel_group_FlxTypedGroup.prototype.__properties__,{get_subStateClosed:"get_subStateClosed",get_subStateOpened:"get_subStateOpened",set_bgColor:"set_bgColor",get_bgColor:"get_bgColor"})
 });
+var InstructionGuideState = function(MaxSize) {
+	flixel_FlxState.call(this,MaxSize);
+};
+$hxClasses["InstructionGuideState"] = InstructionGuideState;
+InstructionGuideState.__name__ = "InstructionGuideState";
+InstructionGuideState.__super__ = flixel_FlxState;
+InstructionGuideState.prototype = $extend(flixel_FlxState.prototype,{
+	text: null
+	,exit: null
+	,exitText: null
+	,enemyExample: null
+	,enemyExample2: null
+	,bg: null
+	,create: function() {
+		flixel_FlxState.prototype.create.call(this);
+		this.bg = new flixel_FlxSprite();
+		this.bg.loadGraphic("assets/images/bg.png");
+		var _this = this.bg;
+		if(17 == 1 || 17 == 17) {
+			_this.set_x((flixel_FlxG.width - _this.get_width()) / 2);
+		}
+		if(17 == 16 || 17 == 17) {
+			_this.set_y((flixel_FlxG.height - _this.get_height()) / 2);
+		}
+		this.add(this.bg);
+		this.text = new flixel_text_FlxText();
+		this.text.set_text("how 2 play\ntuoch da cheses\ndodge the bad guys\nget hgih scroe adn win");
+		this.text.set_font("Times New Roman");
+		this.text.set_size(48);
+		this.text.set_x(12);
+		this.text.set_y(12);
+		this.add(this.text);
+		this.exit = new flixel_FlxSprite();
+		this.exit.makeGraphic(72,72,-65536);
+		this.exit.set_x(flixel_FlxG.width - this.exit.get_width() - 12);
+		this.exit.set_y(12);
+		this.add(this.exit);
+		this.exitText = new flixel_text_FlxText();
+		this.exitText.set_text("EXIT");
+		this.exitText.set_size(18);
+		this.exitText.set_x(this.exit.x + this.exit.get_width() / 2 - this.exitText.get_width() / 2);
+		this.exitText.set_y(this.exit.y + this.exit.get_height() / 2 - this.exitText.get_height() / 2);
+		this.add(this.exitText);
+		this.enemyExample = new flixel_FlxSprite();
+		this.enemyExample.loadGraphic("assets/images/enemies/wega.png");
+		this.enemyExample.set_x(this.text.x + 480);
+		this.enemyExample.set_y(this.text.y + 72 + 12);
+		this.add(this.enemyExample);
+		this.enemyExample2 = new flixel_FlxSprite();
+		this.enemyExample2.loadGraphic("assets/images/enemies/fnati.png");
+		this.enemyExample2.set_x(this.enemyExample.x + this.enemyExample.get_width() + 12);
+		this.enemyExample2.set_y(this.enemyExample.y);
+		this.add(this.enemyExample2);
+		if(flixel_FlxG.sound.music == null) {
+			flixel_FlxG.sound.playMusic("assets/music/mainmenu.ogg",1,true);
+		}
+	}
+	,update: function(elapsed) {
+		if(flixel_FlxG.mouse.overlaps(this.exit)) {
+			var e = this.exit;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 0.6},0.6);
+			var e = this.exitText;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 0.6},0.6);
+			if(flixel_FlxG.mouse._leftButton.current == 2) {
+				var nextState = new MainMenuState();
+				if(flixel_FlxG.game._state.switchTo(nextState)) {
+					flixel_FlxG.game._requestedState = nextState;
+				}
+			}
+		}
+		flixel_FlxState.prototype.update.call(this,elapsed);
+	}
+	,__class__: InstructionGuideState
+});
+var IntIterator = function(min,max) {
+	this.min = min;
+	this.max = max;
+};
+$hxClasses["IntIterator"] = IntIterator;
+IntIterator.__name__ = "IntIterator";
+IntIterator.prototype = {
+	min: null
+	,max: null
+	,hasNext: function() {
+		return this.min < this.max;
+	}
+	,next: function() {
+		return this.min++;
+	}
+	,__class__: IntIterator
+};
+var Lambda = function() { };
+$hxClasses["Lambda"] = Lambda;
+Lambda.__name__ = "Lambda";
+Lambda.array = function(it) {
+	var a = [];
+	var i = $getIterator(it);
+	while(i.hasNext()) {
+		var i1 = i.next();
+		a.push(i1);
+	}
+	return a;
+};
+var MainMenuState = function(MaxSize) {
+	flixel_FlxState.call(this,MaxSize);
+};
+$hxClasses["MainMenuState"] = MainMenuState;
+MainMenuState.__name__ = "MainMenuState";
+MainMenuState.__super__ = flixel_FlxState;
+MainMenuState.prototype = $extend(flixel_FlxState.prototype,{
+	button: null
+	,instruct: null
+	,buttonText: null
+	,instructText: null
+	,bg: null
+	,warning: null
+	,credits: null
+	,create: function() {
+		flixel_FlxState.prototype.create.call(this);
+		this.bg = new flixel_FlxSprite();
+		this.bg.loadGraphic("assets/images/bg-misery.png");
+		var _this = this.bg;
+		if(17 == 1 || 17 == 17) {
+			_this.set_x((flixel_FlxG.width - _this.get_width()) / 2);
+		}
+		if(17 == 16 || 17 == 17) {
+			_this.set_y((flixel_FlxG.height - _this.get_height()) / 2);
+		}
+		this.add(this.bg);
+		this.button = new flixel_FlxSprite();
+		this.button.makeGraphic(400,150,-16711936);
+		var _this = this.button;
+		var axes = 1;
+		if(axes == null) {
+			axes = 17;
+		}
+		if(axes == 1 || axes == 17) {
+			_this.set_x((flixel_FlxG.width - _this.get_width()) / 2);
+		}
+		if(axes == 16 || axes == 17) {
+			_this.set_y((flixel_FlxG.height - _this.get_height()) / 2);
+		}
+		this.button.set_y(12);
+		this.add(this.button);
+		this.instruct = new flixel_FlxSprite();
+		this.instruct.makeGraphic(400,150,-16711936);
+		var _this = this.instruct;
+		var axes = 1;
+		if(axes == null) {
+			axes = 17;
+		}
+		if(axes == 1 || axes == 17) {
+			_this.set_x((flixel_FlxG.width - _this.get_width()) / 2);
+		}
+		if(axes == 16 || axes == 17) {
+			_this.set_y((flixel_FlxG.height - _this.get_height()) / 2);
+		}
+		this.instruct.set_y(this.button.y + this.button.get_height() + 12);
+		this.add(this.instruct);
+		this.buttonText = new flixel_text_FlxText();
+		this.buttonText.set_text("PLAY MY GAME");
+		this.buttonText.set_size(32);
+		this.buttonText.set_font("Times New Roman");
+		this.buttonText.set_x(this.button.x + this.button.get_width() / 2 - this.buttonText.get_width() / 2);
+		this.buttonText.set_y(this.button.y + this.button.get_height() / 2 - this.buttonText.get_height() / 2);
+		this.add(this.buttonText);
+		this.instructText = new flixel_text_FlxText();
+		this.instructText.set_text("instructions");
+		this.instructText.set_size(32);
+		this.instructText.set_font("Times New Roman");
+		this.instructText.set_x(this.instruct.x + this.instruct.get_width() / 2 - this.instructText.get_width() / 2);
+		this.instructText.set_y(this.instruct.y + this.instruct.get_height() / 2 - this.instructText.get_height() / 2);
+		this.add(this.instructText);
+		this.warning = new flixel_text_FlxText();
+		this.warning.set_text("Please DO NOT play this game if you are a person with epilepsy and/or prone to seizures.");
+		this.warning.set_fieldWidth(flixel_FlxG.width);
+		this.warning.set_size(36);
+		this.warning.set_font("Times New Roman");
+		var _this = this.warning;
+		var axes = 1;
+		if(axes == null) {
+			axes = 17;
+		}
+		if(axes == 1 || axes == 17) {
+			_this.set_x((flixel_FlxG.width - _this.get_width()) / 2);
+		}
+		if(axes == 16 || axes == 17) {
+			_this.set_y((flixel_FlxG.height - _this.get_height()) / 2);
+		}
+		this.warning.set_y(500);
+		this.add(this.warning);
+		this.credits = new flixel_text_FlxText();
+		this.credits.set_text("Created by Rico W./supernovaexplosion64: 2026-2026");
+		this.credits.set_font("Times New Roman");
+		this.credits.set_size(24);
+		this.credits.set_x(12);
+		this.credits.set_y(flixel_FlxG.height - this.credits.get_height() - 12);
+		this.add(this.credits);
+		flixel_FlxG.sound.playMusic("assets/music/mainmenu.ogg",1,true);
+	}
+	,update: function(elapsed) {
+		flixel_FlxState.prototype.update.call(this,elapsed);
+		if(flixel_FlxG.mouse.overlaps(this.button)) {
+			var e = this.button;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 0.6},0.6);
+			var e = this.buttonText;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 0.6},0.6);
+			if(flixel_FlxG.mouse._leftButton.current == 2) {
+				var nextState = new PlayState();
+				if(flixel_FlxG.game._state.switchTo(nextState)) {
+					flixel_FlxG.game._requestedState = nextState;
+				}
+			}
+		} else if(this.button.alpha < 1) {
+			var e = this.button;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 1},0.6);
+			var e = this.buttonText;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 1},0.6);
+		}
+		if(flixel_FlxG.mouse.overlaps(this.instruct)) {
+			var e = this.instruct;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 0.6},0.6);
+			var e = this.instructText;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 0.6},0.6);
+			if(flixel_FlxG.mouse._leftButton.current == 2) {
+				var nextState = new InstructionGuideState();
+				if(flixel_FlxG.game._state.switchTo(nextState)) {
+					flixel_FlxG.game._requestedState = nextState;
+				}
+			}
+		} else if(this.instruct.alpha < 1) {
+			var e = this.instruct;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 1},0.6);
+			var e = this.instructText;
+			flixel_tweens_FlxTween.tween(e,{ alpha : 1},0.6);
+		}
+	}
+	,__class__: MainMenuState
+});
+var ManifestResources = function() { };
+$hxClasses["ManifestResources"] = ManifestResources;
+ManifestResources.__name__ = "ManifestResources";
+ManifestResources.preloadLibraries = null;
+ManifestResources.preloadLibraryNames = null;
+ManifestResources.rootPath = null;
+ManifestResources.init = function(config) {
+	ManifestResources.preloadLibraries = [];
+	ManifestResources.preloadLibraryNames = [];
+	ManifestResources.rootPath = null;
+	if(config != null && Object.prototype.hasOwnProperty.call(config,"rootPath")) {
+		ManifestResources.rootPath = Reflect.field(config,"rootPath");
+		if(!StringTools.endsWith(ManifestResources.rootPath,"/")) {
+			ManifestResources.rootPath += "/";
+		}
+	}
+	if(ManifestResources.rootPath == null) {
+		ManifestResources.rootPath = "./";
+	}
+	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
+	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
+	var bundle;
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y31:assets%2Fimages%2Fbg-misery.pngR2i340931R3y5:IMAGER5R7R6tgoR0y24:assets%2Fimages%2Fbg.pngR2i742935R3R8R5R9R6tgoR0y37:assets%2Fimages%2Fenemies%2Ffnati.pngR2i6028R3R8R5R10R6tgoR0y36:assets%2Fimages%2Fenemies%2Fwega.pngR2i9461R3R8R5R11R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R12R6tgoR0y40:assets%2Fimages%2Fitems%2Fbluecheese.pngR2i2635R3R8R5R13R6tgoR0y36:assets%2Fimages%2Fitems%2Fcheese.pngR2i5333R3R8R5R14R6tgoR0y39:assets%2Fimages%2Fitems%2Fredcheese.pngR2i2588R3R8R5R15R6tgoR0y28:assets%2Fimages%2Fplayer.pngR2i25412R3R8R5R16R6tgoR0y36:assets%2Fimages%2Fpopups%2Falpha.pngR2i273588R3R8R5R17R6tgoR0y36:assets%2Fimages%2Fpopups%2Fbilly.pngR2i259946R3R8R5R18R6tgoR0y37:assets%2Fimages%2Fpopups%2Fdonald.pngR2i531885R3R8R5R19R6tgoR0y34:assets%2Fimages%2Fpopups%2Ffat.pngR2i645074R3R8R5R20R6tgoR0y37:assets%2Fimages%2Fpopups%2Ffeedme.pngR2i243972R3R8R5R21R6tgoR0y38:assets%2Fimages%2Fpopups%2Fmadness.pngR2i265891R3R8R5R22R6tgoR0y34:assets%2Fimages%2Fpopups%2Fomg.pngR2i503937R3R8R5R23R6tgoR0y36:assets%2Fimages%2Fpopups%2Fphone.pngR2i461556R3R8R5R24R6tgoR0y37:assets%2Fimages%2Fpopups%2Fquiddy.pngR2i221991R3R8R5R25R6tgoR0y38:assets%2Fimages%2Fpopups%2Frevenge.pngR2i318731R3R8R5R26R6tgoR0y37:assets%2Fimages%2Fpopups%2Fscream.pngR2i778781R3R8R5R27R6tgoR0y37:assets%2Fimages%2Fpopups%2Fskinny.pngR2i638713R3R8R5R28R6tgoR2i3687382R3y5:MUSICR5y29:assets%2Fmusic%2Fmainmenu.oggy9:pathGroupaR30hR6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R32R6tgoR2i3872280R3R29R5y32:assets%2Fmusic%2Fwelcome-old.oggR31aR33hR6tgoR2i40900R3y5:SOUNDR5y34:assets%2Fsounds%2Fmickey-mouse.oggR31aR35hR6tgoR2i18537R3R34R5y28:assets%2Fsounds%2Fscream.oggR31aR36hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R37R6tgoR0y39:assets%2Fvideos%2Fpick-up-the-phone.mp4R2i973326R3y6:BINARYR5R38R6tgoR2i8220R3R29R5y26:flixel%2Fsounds%2Fbeep.mp3R31aR40y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R29R5y28:flixel%2Fsounds%2Fflixel.mp3R31aR42y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i6840R3R34R5R41R31aR40R41hgoR2i33629R3R34R5R43R31aR42R43hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R44R45y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i199R3R8R5R50R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i490R3R8R5R51R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
+	var library = lime_utils_AssetLibrary.fromManifest(manifest);
+	lime_utils_Assets.registerLibrary("default",library);
+	library = lime_utils_Assets.getLibrary("default");
+	if(library != null) {
+		ManifestResources.preloadLibraries.push(library);
+	} else {
+		ManifestResources.preloadLibraryNames.push("default");
+	}
+};
+var lime_text_Font = function(name) {
+	if(name != null) {
+		this.name = name;
+	}
+	if(!this.__init) {
+		if(this.ascender == undefined) {
+			this.ascender = 0;
+		}
+		if(this.descender == undefined) {
+			this.descender = 0;
+		}
+		if(this.height == undefined) {
+			this.height = 0;
+		}
+		if(this.numGlyphs == undefined) {
+			this.numGlyphs = 0;
+		}
+		if(this.underlinePosition == undefined) {
+			this.underlinePosition = 0;
+		}
+		if(this.underlineThickness == undefined) {
+			this.underlineThickness = 0;
+		}
+		if(this.unitsPerEM == undefined) {
+			this.unitsPerEM = 0;
+		}
+		if(this.__fontID != null) {
+			if(lime_utils_Assets.isLocal(this.__fontID)) {
+				this.__fromBytes(lime_utils_Assets.getBytes(this.__fontID));
+			}
+		} else if(this.__fontPath != null) {
+			this.__fromFile(this.__fontPath);
+		}
+	}
+};
+$hxClasses["lime.text.Font"] = lime_text_Font;
+lime_text_Font.__name__ = "lime.text.Font";
+lime_text_Font.fromBytes = function(bytes) {
+	if(bytes == null) {
+		return null;
+	}
+	var font = new lime_text_Font();
+	font.__fromBytes(bytes);
+	return font;
+};
+lime_text_Font.fromFile = function(path) {
+	if(path == null) {
+		return null;
+	}
+	var font = new lime_text_Font();
+	font.__fromFile(path);
+	return font;
+};
+lime_text_Font.loadFromBytes = function(bytes) {
+	return lime_app_Future.withValue(lime_text_Font.fromBytes(bytes));
+};
+lime_text_Font.loadFromFile = function(path) {
+	var request = new lime_net__$HTTPRequest_$lime_$text_$Font();
+	return request.load(path).then(function(font) {
+		if(font != null) {
+			return lime_app_Future.withValue(font);
+		} else {
+			return lime_app_Future.withError("");
+		}
+	});
+};
+lime_text_Font.loadFromName = function(path) {
+	var font = new lime_text_Font();
+	return font.__loadFromName(path);
+};
+lime_text_Font.__measureFontNode = function(fontFamily) {
+	var node = window.document.createElement("span");
+	node.setAttribute("aria-hidden","true");
+	var text = window.document.createTextNode("BESbswy");
+	node.appendChild(text);
+	var style = node.style;
+	style.display = "block";
+	style.position = "absolute";
+	style.top = "-9999px";
+	style.left = "-9999px";
+	style.fontSize = "300px";
+	style.width = "auto";
+	style.height = "auto";
+	style.lineHeight = "normal";
+	style.margin = "0";
+	style.padding = "0";
+	style.fontVariant = "normal";
+	style.whiteSpace = "nowrap";
+	style.fontFamily = fontFamily;
+	window.document.body.appendChild(node);
+	return node;
+};
+lime_text_Font.prototype = {
+	ascender: null
+	,descender: null
+	,height: null
+	,name: null
+	,numGlyphs: null
+	,src: null
+	,underlinePosition: null
+	,underlineThickness: null
+	,unitsPerEM: null
+	,__fontID: null
+	,__fontPath: null
+	,__init: null
+	,decompose: function() {
+		return null;
+	}
+	,getGlyph: function(character) {
+		return -1;
+	}
+	,getGlyphs: function(characters) {
+		if(characters == null) {
+			characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^`'\"/\\&*()[]{}<>|:;_-+=?,. ";
+		}
+		return null;
+	}
+	,getGlyphMetrics: function(glyph) {
+		return null;
+	}
+	,renderGlyph: function(glyph,fontSize) {
+		return null;
+	}
+	,renderGlyphs: function(glyphs,fontSize) {
+		return null;
+	}
+	,__copyFrom: function(other) {
+		if(other != null) {
+			this.ascender = other.ascender;
+			this.descender = other.descender;
+			this.height = other.height;
+			this.name = other.name;
+			this.numGlyphs = other.numGlyphs;
+			this.src = other.src;
+			this.underlinePosition = other.underlinePosition;
+			this.underlineThickness = other.underlineThickness;
+			this.unitsPerEM = other.unitsPerEM;
+			this.__fontID = other.__fontID;
+			this.__fontPath = other.__fontPath;
+			this.__init = true;
+		}
+	}
+	,__fromBytes: function(bytes) {
+		this.__fontPath = null;
+	}
+	,__fromFile: function(path) {
+		this.__fontPath = path;
+	}
+	,__initializeSource: function() {
+		this.__init = true;
+	}
+	,__loadFromName: function(name) {
+		var _gthis = this;
+		var promise = new lime_app_Promise();
+		this.name = name;
+		var userAgent = $global.navigator.userAgent.toLowerCase();
+		var isSafari = userAgent.indexOf(" safari/") >= 0 && userAgent.indexOf(" chrome/") < 0;
+		var isUIWebView = new EReg("(iPhone|iPod|iPad).*AppleWebKit(?!.*Version)","i").match(userAgent);
+		if(!isSafari && !isUIWebView && (window.document.fonts && ($_=window.document.fonts,$bind($_,$_.load)))) {
+			window.document.fonts.load("1em '" + name + "'").then(function(_) {
+				promise.complete(_gthis);
+			},function(_) {
+				lime_utils_Log.warn("Could not load web font \"" + name + "\"",{ fileName : "lime/text/Font.hx", lineNumber : 515, className : "lime.text.Font", methodName : "__loadFromName"});
+				promise.complete(_gthis);
+			});
+		} else {
+			var node1 = lime_text_Font.__measureFontNode("'" + name + "', sans-serif");
+			var node2 = lime_text_Font.__measureFontNode("'" + name + "', serif");
+			var width1 = node1.offsetWidth;
+			var width2 = node2.offsetWidth;
+			var interval = -1;
+			var timeout = 3000;
+			var intervalLength = 50;
+			var intervalCount = 0;
+			var loaded;
+			var timeExpired;
+			var checkFont = function() {
+				intervalCount += 1;
+				loaded = node1.offsetWidth != width1 || node2.offsetWidth != width2;
+				timeExpired = intervalCount * intervalLength >= timeout;
+				if(loaded || timeExpired) {
+					window.clearInterval(interval);
+					node1.parentNode.removeChild(node1);
+					node2.parentNode.removeChild(node2);
+					node1 = null;
+					node2 = null;
+					if(timeExpired) {
+						lime_utils_Log.warn("Could not load web font \"" + name + "\"",{ fileName : "lime/text/Font.hx", lineNumber : 550, className : "lime.text.Font", methodName : "__loadFromName"});
+					}
+					promise.complete(_gthis);
+				}
+			};
+			interval = window.setInterval(checkFont,intervalLength);
+		}
+		return promise.future;
+	}
+	,__setSize: function(size) {
+	}
+	,__class__: lime_text_Font
+};
+var _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf = $hx_exports["__ASSET__flixel_fonts_nokiafc22_ttf"] = function() {
+	this.ascender = 2048;
+	this.descender = -512;
+	this.height = 2816;
+	this.numGlyphs = 172;
+	this.underlinePosition = -640;
+	this.underlineThickness = 256;
+	this.unitsPerEM = 2048;
+	this.name = "Nokia Cellphone FC Small";
+	lime_text_Font.call(this);
+};
+$hxClasses["__ASSET__flixel_fonts_nokiafc22_ttf"] = _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf;
+_$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf.__name__ = "__ASSET__flixel_fonts_nokiafc22_ttf";
+_$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf.__super__ = lime_text_Font;
+_$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf.prototype = $extend(lime_text_Font.prototype,{
+	__class__: _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf
+});
+var _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf = $hx_exports["__ASSET__flixel_fonts_monsterrat_ttf"] = function() {
+	this.ascender = 968;
+	this.descender = -251;
+	this.height = 1219;
+	this.numGlyphs = 263;
+	this.underlinePosition = -150;
+	this.underlineThickness = 50;
+	this.unitsPerEM = 1000;
+	this.name = "Monsterrat";
+	lime_text_Font.call(this);
+};
+$hxClasses["__ASSET__flixel_fonts_monsterrat_ttf"] = _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf;
+_$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf.__name__ = "__ASSET__flixel_fonts_monsterrat_ttf";
+_$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf.__super__ = lime_text_Font;
+_$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf.prototype = $extend(lime_text_Font.prototype,{
+	__class__: _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf
+});
+var openfl_text_Font = function(name) {
+	lime_text_Font.call(this,name);
+};
+$hxClasses["openfl.text.Font"] = openfl_text_Font;
+openfl_text_Font.__name__ = "openfl.text.Font";
+openfl_text_Font.enumerateFonts = function(enumerateDeviceFonts) {
+	if(enumerateDeviceFonts == null) {
+		enumerateDeviceFonts = false;
+	}
+	return openfl_text_Font.__registeredFonts;
+};
+openfl_text_Font.fromBytes = function(bytes) {
+	var font = new openfl_text_Font();
+	font.__fromBytes(openfl_utils_ByteArray.toBytes(bytes));
+	return font;
+};
+openfl_text_Font.fromFile = function(path) {
+	if(path == null) {
+		return null;
+	}
+	var font = new openfl_text_Font();
+	font.__fromFile(path);
+	return font;
+};
+openfl_text_Font.loadFromBytes = function(bytes) {
+	return lime_text_Font.loadFromBytes(openfl_utils_ByteArray.toBytes(bytes)).then(function(limeFont) {
+		var font = new openfl_text_Font();
+		font.__fromLimeFont(limeFont);
+		return lime_app_Future.withValue(font);
+	});
+};
+openfl_text_Font.loadFromFile = function(path) {
+	return lime_text_Font.loadFromFile(path).then(function(limeFont) {
+		var font = new openfl_text_Font();
+		font.__fromLimeFont(limeFont);
+		return lime_app_Future.withValue(font);
+	});
+};
+openfl_text_Font.loadFromName = function(path) {
+	return lime_text_Font.loadFromName(path).then(function(limeFont) {
+		var font = new openfl_text_Font();
+		font.__fromLimeFont(limeFont);
+		return lime_app_Future.withValue(font);
+	});
+};
+openfl_text_Font.registerFont = function(font) {
+	var instance = null;
+	if(js_Boot.getClass(font) == null) {
+		instance = js_Boot.__cast(Type.createInstance(font,[]) , openfl_text_Font);
+	} else {
+		instance = js_Boot.__cast(font , openfl_text_Font);
+	}
+	if(instance != null) {
+		openfl_text_Font.__registeredFonts.push(instance);
+		openfl_text_Font.__fontByName.h[instance.name] = instance;
+	}
+};
+openfl_text_Font.__super__ = lime_text_Font;
+openfl_text_Font.prototype = $extend(lime_text_Font.prototype,{
+	fontStyle: null
+	,fontType: null
+	,__initialized: null
+	,__fromLimeFont: function(font) {
+		this.__copyFrom(font);
+	}
+	,__initialize: function() {
+		return this.__initialized;
+	}
+	,get_fontName: function() {
+		return this.name;
+	}
+	,set_fontName: function(value) {
+		return this.name = value;
+	}
+	,__class__: openfl_text_Font
+	,__properties__: {set_fontName:"set_fontName",get_fontName:"get_fontName"}
+});
+var _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf = $hx_exports["__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf"] = function() {
+	this.__fromLimeFont(new _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf());
+	openfl_text_Font.call(this);
+};
+$hxClasses["__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf"] = _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf;
+_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf.__name__ = "__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf";
+_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf.__super__ = openfl_text_Font;
+_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf.prototype = $extend(openfl_text_Font.prototype,{
+	__class__: _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf
+});
+var _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf = $hx_exports["__ASSET__OPENFL__flixel_fonts_monsterrat_ttf"] = function() {
+	this.__fromLimeFont(new _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf());
+	openfl_text_Font.call(this);
+};
+$hxClasses["__ASSET__OPENFL__flixel_fonts_monsterrat_ttf"] = _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf;
+_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf.__name__ = "__ASSET__OPENFL__flixel_fonts_monsterrat_ttf";
+_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf.__super__ = openfl_text_Font;
+_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf.prototype = $extend(openfl_text_Font.prototype,{
+	__class__: _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf
+});
+Math.__name__ = "Math";
 var PlayState = function(MaxSize) {
+	this.videoPlaying = false;
+	this.takeAwayPoints = false;
+	this.wegaTimes = 0;
+	this.time = 115;
 	this.randomMovementY = flixel_FlxG.random.int(1,12);
 	this.randomMovementX = flixel_FlxG.random.int(1,10);
+	this.decreasingMultiplier = 100;
 	this.scoreMultiplier = 1;
-	this.score = 0;
 	flixel_FlxState.call(this,MaxSize);
 };
 $hxClasses["PlayState"] = PlayState;
@@ -4944,14 +5158,37 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 	,cheese: null
 	,popUp: null
 	,mickeySound: null
-	,score: null
+	,bg: null
 	,scoreMultiplier: null
+	,decreasingMultiplier: null
 	,daCheese: null
 	,scoreText: null
 	,randomMovementX: null
 	,randomMovementY: null
+	,time: null
+	,timeText: null
+	,wega: null
+	,wegaTimes: null
+	,takeAwayPoints: null
+	,pickUp: null
+	,videoPlaying: null
 	,create: function() {
 		flixel_FlxState.prototype.create.call(this);
+		PlayState.gameJustStarted = true;
+		if(PlayState.gameJustStarted) {
+			PlayState.score = 0;
+		}
+		PlayState.gameJustStarted = false;
+		this.bg = new flixel_FlxSprite();
+		this.bg.loadGraphic("assets/images/bg.png");
+		var _this = this.bg;
+		if(17 == 1 || 17 == 17) {
+			_this.set_x((flixel_FlxG.width - _this.get_width()) / 2);
+		}
+		if(17 == 16 || 17 == 17) {
+			_this.set_y((flixel_FlxG.height - _this.get_height()) / 2);
+		}
+		this.add(this.bg);
 		this.player = new flixel_FlxSprite();
 		this.player.loadGraphic("assets/images/player.png");
 		this.player.setGraphicSize(128,128);
@@ -4968,23 +5205,43 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		}
 		this.player.set_y(flixel_FlxG.height - 256);
 		this.add(this.player);
-		if(flixel_FlxG.sound.music == null) {
-			flixel_FlxG.sound.playMusic("assets/music/welcome-old.ogg",1,true);
-		}
+		flixel_FlxG.sound.playMusic("assets/music/welcome-old.ogg",1,true);
 		this.cheese = new flixel_FlxSprite();
 		this.cheese.loadGraphic("assets/images/items/cheese.png");
 		this.scoreText = new flixel_text_FlxText();
 		this.scoreText.set_size(48);
 		this.scoreText.set_font("Times New Roman");
-		this.scoreText.set_text("SCORE: " + Std.string(this.score));
+		this.scoreText.set_text("SCORE: " + Std.string(PlayState.score));
 		this.add(this.scoreText);
+		this.timeText = new flixel_text_FlxText();
+		this.timeText.set_size(48);
+		this.timeText.set_font("Times New Roman");
+		this.timeText.set_text("TIME: " + Std.string(this.time));
+		this.timeText.set_y(this.scoreText.y + this.timeText.get_height() + 12);
+		this.add(this.timeText);
+		this.wega = new flixel_FlxSprite();
+		this.wega.loadGraphic("assets/images/enemies/wega.png");
+		this.pickUp = new flixel_FlxSprite();
+		this.pickUp.loadGraphic("assets/images/enemies/fnati.png");
 		this.spawnCheese();
 	}
 	,update: function(elapsed) {
+		this.time -= flixel_FlxG.elapsed;
+		this.decreasingMultiplier -= 8 * flixel_FlxG.elapsed;
+		this.timeText.set_text("TIME: " + Std.string(this.time | 0));
+		this.timeText.updateHitbox();
+		this.spawnWega();
+		this.spawnPhone();
 		this.keepPlayerInBox(this.player);
 		this.moveCheese();
 		if(flixel_util_FlxCollision.pixelPerfectCheck(this.player,this.cheese,255,null)) {
 			this.feedMe();
+		}
+		if(flixel_util_FlxCollision.pixelPerfectCheck(this.player,this.wega,255,null)) {
+			this.touchWega();
+		}
+		if(flixel_util_FlxCollision.pixelPerfectCheck(this.player,this.pickUp,255,null)) {
+			this.loadUpVideo();
 		}
 		var _this = flixel_FlxG.keys.pressed;
 		if(_this.keyManager.checkStatusUnsafe(37,_this.status)) {
@@ -5006,11 +5263,20 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 			var fh = this.player;
 			fh.set_y(fh.y + 640 * elapsed);
 		}
+		if(this.time <= 0) {
+			var nextState = new ScoreState();
+			if(flixel_FlxG.game._state.switchTo(nextState)) {
+				flixel_FlxG.game._requestedState = nextState;
+			}
+		}
 		flixel_FlxState.prototype.update.call(this,elapsed);
 	}
+	,updateText: function() {
+		this.scoreText.set_text("SCORE: " + Std.string(PlayState.score));
+	}
 	,spawnCheese: function() {
-		var randomX = flixel_FlxG.random.int(0,1200);
-		var randomY = flixel_FlxG.random.int(0,600);
+		var randomX = flixel_FlxG.random.int(0,1212);
+		var randomY = flixel_FlxG.random.int(0,656);
 		var randomCheeseNum = flixel_FlxG.random.int(1,10);
 		if(randomCheeseNum == 1) {
 			this.daCheese = "red";
@@ -5033,8 +5299,53 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		this.cheese.set_y(randomY);
 		this.add(this.cheese);
 	}
+	,spawnWega: function() {
+		var _gthis = this;
+		var Chance = 0.5;
+		if(Chance == null) {
+			Chance = 50;
+		}
+		if(flixel_FlxG.random.float(0,100) < Chance) {
+			var randomX = flixel_FlxG.random.int(0,1212);
+			var randomY = flixel_FlxG.random.int(0,656);
+			this.wega.set_x(randomX);
+			this.wega.set_y(randomY);
+			this.add(this.wega);
+			new flixel_util_FlxTimer().start(6,function(tmr) {
+				_gthis.remove(_gthis.wega);
+			});
+		}
+	}
+	,touchWega: function() {
+		var fh = this.wega;
+		this.wega.set_x(fh.set_x(fh.x * -1));
+		var fh = this.wega;
+		this.wega.set_y(fh.set_y(fh.y * -1));
+		this.takeAwayScore();
+		this.remove(this.wega);
+		this.wegaPopUp();
+		this.updateText();
+	}
+	,spawnPhone: function() {
+		var _gthis = this;
+		var Chance = 0.06;
+		if(Chance == null) {
+			Chance = 50;
+		}
+		if(flixel_FlxG.random.float(0,100) < Chance) {
+			var randomX = flixel_FlxG.random.int(0,1212);
+			var randomY = flixel_FlxG.random.int(0,656);
+			this.pickUp.set_x(randomX);
+			this.pickUp.set_y(randomY);
+			this.add(this.pickUp);
+			new flixel_util_FlxTimer().start(6,function(tmr) {
+				_gthis.remove(_gthis.pickUp);
+			});
+		}
+	}
 	,feedMe: function() {
 		this.addScore();
+		this.decreasingMultiplier = 100 - 2 * this.wegaTimes;
 		this.remove(this.cheese);
 		this.spawnCheese();
 		this.showPopUp();
@@ -5093,11 +5404,24 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		default:
 			this.scoreMultiplier = 1;
 		}
-		this.score += this.scoreMultiplier | 0;
-		this.scoreText.set_text("SCORE: " + Std.string(this.score));
+		PlayState.score += this.scoreMultiplier * this.decreasingMultiplier | 0;
+		this.updateText();
+	}
+	,takeAwayScore: function() {
+		this.takeAwayPoints = true;
+		if(this.takeAwayPoints) {
+			this.takeAwayPoints = false;
+			this.wegaTimes += 1;
+			if(this.wegaTimes > 50) {
+				this.wegaTimes = 50;
+			}
+			haxe_Log.trace(this.wegaTimes,{ fileName : "source/PlayState.hx", lineNumber : 322, className : "PlayState", methodName : "takeAwayScore"});
+			PlayState.score -= 15 * this.wegaTimes;
+		}
 	}
 	,showPopUp: function() {
-		var randomPopUpNumber = flixel_FlxG.random.int(1,4);
+		var _gthis = this;
+		var randomPopUpNumber = flixel_FlxG.random.int(1,11);
 		var rPuS = "";
 		this.popUp = new flixel_FlxSprite();
 		switch(randomPopUpNumber) {
@@ -5113,6 +5437,27 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		case 4:
 			rPuS = "donald";
 			break;
+		case 5:
+			rPuS = "fat";
+			break;
+		case 6:
+			rPuS = "omg";
+			break;
+		case 7:
+			rPuS = "phone";
+			break;
+		case 8:
+			rPuS = "billy";
+			break;
+		case 9:
+			rPuS = "skinny";
+			break;
+		case 10:
+			rPuS = "madness";
+			break;
+		case 11:
+			rPuS = "alpha";
+			break;
 		}
 		this.popUp.loadGraphic("assets/images/popups/" + rPuS + ".png");
 		var _this = this.popUp;
@@ -5126,6 +5471,40 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		flixel_tweens_FlxTween.tween(this.popUp,{ alpha : 0},0.6);
 		this.mickeySound = flixel_FlxG.sound.load("assets/sounds/mickey-mouse.ogg");
 		this.mickeySound.play();
+		new flixel_util_FlxTimer().start(this.time,function(tmr) {
+			_gthis.remove(_gthis.popUp);
+		});
+	}
+	,wegaPopUp: function() {
+		var _gthis = this;
+		this.popUp = new flixel_FlxSprite();
+		this.popUp.loadGraphic("assets/images/popups/scream.png");
+		var _this = this.popUp;
+		if(17 == 1 || 17 == 17) {
+			_this.set_x((flixel_FlxG.width - _this.get_width()) / 2);
+		}
+		if(17 == 16 || 17 == 17) {
+			_this.set_y((flixel_FlxG.height - _this.get_height()) / 2);
+		}
+		this.add(this.popUp);
+		flixel_tweens_FlxTween.tween(this.popUp,{ alpha : 0},0.6);
+		this.mickeySound = flixel_FlxG.sound.load("assets/sounds/scream.ogg");
+		this.mickeySound.play();
+		flixel_FlxG.camera.shake();
+		new flixel_util_FlxTimer().start(1,function(tmr) {
+			_gthis.remove(_gthis.popUp);
+		});
+	}
+	,loadUpVideo: function() {
+		var url = "https://youtu.be/UwGiXZOC-SQ";
+		if(!new EReg("^.\\w+?:/*","").match(url)) {
+			url = "https://" + url;
+		}
+		openfl_Lib.getURL(new openfl_net_URLRequest(url),"_blank");
+		var nextState = new MainMenuState();
+		if(flixel_FlxG.game._state.switchTo(nextState)) {
+			flixel_FlxG.game._requestedState = nextState;
+		}
 	}
 	,keepPlayerInBox: function(obj) {
 		if(obj.x < 0) {
@@ -5267,6 +5646,31 @@ Reflect.makeVarArgs = function(f) {
 		return f(a2);
 	};
 };
+var ScoreState = function(MaxSize) {
+	flixel_FlxState.call(this,MaxSize);
+};
+$hxClasses["ScoreState"] = ScoreState;
+ScoreState.__name__ = "ScoreState";
+ScoreState.__super__ = flixel_FlxState;
+ScoreState.prototype = $extend(flixel_FlxState.prototype,{
+	scorePre: null
+	,scorePreText: null
+	,create: function() {
+		flixel_FlxState.prototype.create.call(this);
+		this.scorePre = PlayState.score;
+		this.scorePreText = new flixel_text_FlxText();
+		this.scorePreText.set_text(Std.string(this.scorePre));
+		this.scorePreText.set_size(48);
+		this.scorePreText.set_font("Times New Roman");
+		this.scorePreText.set_x(12);
+		this.scorePreText.set_y(12);
+		this.add(this.scorePreText);
+	}
+	,update: function(elapsed) {
+		flixel_FlxState.prototype.update.call(this,elapsed);
+	}
+	,__class__: ScoreState
+});
 var Std = function() { };
 $hxClasses["Std"] = Std;
 Std.__name__ = "Std";
@@ -75226,7 +75630,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 719100;
+	this.version = 858174;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -124721,9 +125125,11 @@ openfl_display_DisplayObject.__tempStack = new lime_utils_ObjectPool(function() 
 },function(stack) {
 	stack.set_length(0);
 });
+flixel_FlxBasic.idEnumerator = 0;
 openfl_text_Font.__fontByName = new haxe_ds_StringMap();
 openfl_text_Font.__registeredFonts = [];
-flixel_FlxBasic.idEnumerator = 0;
+PlayState.gameJustStarted = false;
+PlayState.score = 0;
 Xml.Element = 0;
 Xml.PCData = 1;
 Xml.CData = 2;
