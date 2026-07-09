@@ -4589,7 +4589,7 @@ InstructionGuideState.prototype = $extend(flixel_FlxState.prototype,{
 		this.enemyExample2.set_y(this.enemyExample.y);
 		this.add(this.enemyExample2);
 		if(flixel_FlxG.sound.music == null) {
-			flixel_FlxG.sound.playMusic("assets/music/mainmenu.ogg",1,true);
+			flixel_FlxG.sound.playMusic("assets/music/mainmenu.mp3",1,true);
 		}
 	}
 	,update: function(elapsed) {
@@ -4733,7 +4733,7 @@ MainMenuState.prototype = $extend(flixel_FlxState.prototype,{
 		this.credits.set_x(12);
 		this.credits.set_y(flixel_FlxG.height - this.credits.get_height() - 12);
 		this.add(this.credits);
-		flixel_FlxG.sound.playMusic("assets/music/mainmenu.ogg",1,true);
+		flixel_FlxG.sound.playMusic("assets/music/mainmenu.mp3",1,true);
 	}
 	,update: function(elapsed) {
 		flixel_FlxState.prototype.update.call(this,elapsed);
@@ -4796,7 +4796,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y31:assets%2Fimages%2Fbg-misery.pngR2i340931R3y5:IMAGER5R7R6tgoR0y24:assets%2Fimages%2Fbg.pngR2i742935R3R8R5R9R6tgoR0y37:assets%2Fimages%2Fenemies%2Ffnati.pngR2i6028R3R8R5R10R6tgoR0y36:assets%2Fimages%2Fenemies%2Fwega.pngR2i9461R3R8R5R11R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R12R6tgoR0y40:assets%2Fimages%2Fitems%2Fbluecheese.pngR2i2635R3R8R5R13R6tgoR0y36:assets%2Fimages%2Fitems%2Fcheese.pngR2i5333R3R8R5R14R6tgoR0y39:assets%2Fimages%2Fitems%2Fredcheese.pngR2i2588R3R8R5R15R6tgoR0y28:assets%2Fimages%2Fplayer.pngR2i25412R3R8R5R16R6tgoR0y36:assets%2Fimages%2Fpopups%2Falpha.pngR2i273588R3R8R5R17R6tgoR0y36:assets%2Fimages%2Fpopups%2Fbilly.pngR2i259946R3R8R5R18R6tgoR0y37:assets%2Fimages%2Fpopups%2Fdonald.pngR2i531885R3R8R5R19R6tgoR0y34:assets%2Fimages%2Fpopups%2Ffat.pngR2i645074R3R8R5R20R6tgoR0y37:assets%2Fimages%2Fpopups%2Ffeedme.pngR2i243972R3R8R5R21R6tgoR0y38:assets%2Fimages%2Fpopups%2Fmadness.pngR2i265891R3R8R5R22R6tgoR0y34:assets%2Fimages%2Fpopups%2Fomg.pngR2i503937R3R8R5R23R6tgoR0y36:assets%2Fimages%2Fpopups%2Fphone.pngR2i461556R3R8R5R24R6tgoR0y37:assets%2Fimages%2Fpopups%2Fquiddy.pngR2i221991R3R8R5R25R6tgoR0y38:assets%2Fimages%2Fpopups%2Frevenge.pngR2i318731R3R8R5R26R6tgoR0y37:assets%2Fimages%2Fpopups%2Fscream.pngR2i778781R3R8R5R27R6tgoR0y37:assets%2Fimages%2Fpopups%2Fskinny.pngR2i638713R3R8R5R28R6tgoR2i3687382R3y5:MUSICR5y29:assets%2Fmusic%2Fmainmenu.oggy9:pathGroupaR30hR6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R32R6tgoR2i3872280R3R29R5y32:assets%2Fmusic%2Fwelcome-old.oggR31aR33hR6tgoR2i40900R3y5:SOUNDR5y34:assets%2Fsounds%2Fmickey-mouse.oggR31aR35hR6tgoR2i18537R3R34R5y28:assets%2Fsounds%2Fscream.oggR31aR36hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R37R6tgoR0y39:assets%2Fvideos%2Fpick-up-the-phone.mp4R2i973326R3y6:BINARYR5R38R6tgoR2i8220R3R29R5y26:flixel%2Fsounds%2Fbeep.mp3R31aR40y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R29R5y28:flixel%2Fsounds%2Fflixel.mp3R31aR42y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i6840R3R34R5R41R31aR40R41hgoR2i33629R3R34R5R43R31aR42R43hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R44R45y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i199R3R8R5R50R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i490R3R8R5R51R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y31:assets%2Fimages%2Fbg-misery.pngR2i340931R3y5:IMAGER5R7R6tgoR0y24:assets%2Fimages%2Fbg.pngR2i742935R3R8R5R9R6tgoR0y37:assets%2Fimages%2Fenemies%2Ffnati.pngR2i6028R3R8R5R10R6tgoR0y36:assets%2Fimages%2Fenemies%2Fwega.pngR2i9461R3R8R5R11R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R12R6tgoR0y40:assets%2Fimages%2Fitems%2Fbluecheese.pngR2i2635R3R8R5R13R6tgoR0y36:assets%2Fimages%2Fitems%2Fcheese.pngR2i5333R3R8R5R14R6tgoR0y39:assets%2Fimages%2Fitems%2Fredcheese.pngR2i2588R3R8R5R15R6tgoR0y28:assets%2Fimages%2Fplayer.pngR2i25412R3R8R5R16R6tgoR0y36:assets%2Fimages%2Fpopups%2Falpha.pngR2i273588R3R8R5R17R6tgoR0y36:assets%2Fimages%2Fpopups%2Fbilly.pngR2i259946R3R8R5R18R6tgoR0y37:assets%2Fimages%2Fpopups%2Fdonald.pngR2i531885R3R8R5R19R6tgoR0y34:assets%2Fimages%2Fpopups%2Ffat.pngR2i645074R3R8R5R20R6tgoR0y37:assets%2Fimages%2Fpopups%2Ffeedme.pngR2i243972R3R8R5R21R6tgoR0y38:assets%2Fimages%2Fpopups%2Fmadness.pngR2i265891R3R8R5R22R6tgoR0y34:assets%2Fimages%2Fpopups%2Fomg.pngR2i503937R3R8R5R23R6tgoR0y36:assets%2Fimages%2Fpopups%2Fphone.pngR2i461556R3R8R5R24R6tgoR0y37:assets%2Fimages%2Fpopups%2Fquiddy.pngR2i221991R3R8R5R25R6tgoR0y38:assets%2Fimages%2Fpopups%2Frevenge.pngR2i318731R3R8R5R26R6tgoR0y37:assets%2Fimages%2Fpopups%2Fscream.pngR2i778781R3R8R5R27R6tgoR0y37:assets%2Fimages%2Fpopups%2Fskinny.pngR2i638713R3R8R5R28R6tgoR2i4804340R3y5:MUSICR5y29:assets%2Fmusic%2Fmainmenu.mp3y9:pathGroupaR30y29:assets%2Fmusic%2Fmainmenu.ogghR6tgoR2i3687382R3R29R5R32R31aR30R32hgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R33R6tgoR2i2519613R3R29R5y32:assets%2Fmusic%2Fwelcome-old.mp3R31aR34y32:assets%2Fmusic%2Fwelcome-old.ogghR6tgoR2i3872280R3R29R5R35R31aR34R35hgoR2i37985R3R29R5y34:assets%2Fsounds%2Fmickey-mouse.mp3R31aR36y34:assets%2Fsounds%2Fmickey-mouse.ogghR6tgoR2i40900R3y5:SOUNDR5R37R31aR36R37hgoR2i30237R3R29R5y28:assets%2Fsounds%2Fscream.mp3R31aR39y28:assets%2Fsounds%2Fscream.ogghR6tgoR2i18537R3R38R5R40R31aR39R40hgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R41R6tgoR0y39:assets%2Fvideos%2Fpick-up-the-phone.mp4R2i973326R3y6:BINARYR5R42R6tgoR2i8220R3R29R5y26:flixel%2Fsounds%2Fbeep.mp3R31aR44y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R29R5y28:flixel%2Fsounds%2Fflixel.mp3R31aR46y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i6840R3R38R5R45R31aR44R45hgoR2i33629R3R38R5R47R31aR46R47hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R48R49y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i199R3R8R5R54R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i490R3R8R5R55R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -5205,7 +5205,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		}
 		this.player.set_y(flixel_FlxG.height - 256);
 		this.add(this.player);
-		flixel_FlxG.sound.playMusic("assets/music/welcome-old.ogg",1,true);
+		flixel_FlxG.sound.playMusic("assets/music/welcome-old.mp3",1,true);
 		this.cheese = new flixel_FlxSprite();
 		this.cheese.loadGraphic("assets/images/items/cheese.png");
 		this.scoreText = new flixel_text_FlxText();
@@ -5221,13 +5221,20 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		this.add(this.timeText);
 		this.wega = new flixel_FlxSprite();
 		this.wega.loadGraphic("assets/images/enemies/wega.png");
+		this.wega.set_x(this.wega.get_width() * -1);
+		this.wega.set_y(this.wega.get_height() * -1);
 		this.pickUp = new flixel_FlxSprite();
 		this.pickUp.loadGraphic("assets/images/enemies/fnati.png");
+		this.pickUp.set_x(this.pickUp.get_width() * -1);
+		this.pickUp.set_y(this.pickUp.get_height() - 1);
 		this.spawnCheese();
 	}
 	,update: function(elapsed) {
 		this.time -= flixel_FlxG.elapsed;
 		this.decreasingMultiplier -= 8 * flixel_FlxG.elapsed;
+		if(this.decreasingMultiplier < 2) {
+			this.decreasingMultiplier = 2;
+		}
 		this.timeText.set_text("TIME: " + Std.string(this.time | 0));
 		this.timeText.updateHitbox();
 		this.spawnWega();
@@ -5311,10 +5318,17 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 			this.wega.set_x(randomX);
 			this.wega.set_y(randomY);
 			this.add(this.wega);
+			this.wega.updateHitbox();
 			new flixel_util_FlxTimer().start(6,function(tmr) {
+				var fh = _gthis.wega;
+				_gthis.wega.set_x(fh.set_x(fh.x * -1));
+				var fh = _gthis.wega;
+				_gthis.wega.set_y(fh.set_y(fh.y * -1));
 				_gthis.remove(_gthis.wega);
+				_gthis.wega.updateHitbox();
 			});
 		}
+		this.wega.updateHitbox();
 	}
 	,touchWega: function() {
 		var fh = this.wega;
@@ -5338,10 +5352,12 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 			this.pickUp.set_x(randomX);
 			this.pickUp.set_y(randomY);
 			this.add(this.pickUp);
+			this.pickUp.updateHitbox();
 			new flixel_util_FlxTimer().start(6,function(tmr) {
 				_gthis.remove(_gthis.pickUp);
 			});
 		}
+		this.pickUp.updateHitbox();
 	}
 	,feedMe: function() {
 		this.addScore();
@@ -5404,7 +5420,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		default:
 			this.scoreMultiplier = 1;
 		}
-		PlayState.score += this.scoreMultiplier * this.decreasingMultiplier | 0;
+		PlayState.score += 100 * this.scoreMultiplier + this.decreasingMultiplier | 0;
 		this.updateText();
 	}
 	,takeAwayScore: function() {
@@ -5415,7 +5431,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 			if(this.wegaTimes > 50) {
 				this.wegaTimes = 50;
 			}
-			haxe_Log.trace(this.wegaTimes,{ fileName : "source/PlayState.hx", lineNumber : 322, className : "PlayState", methodName : "takeAwayScore"});
+			haxe_Log.trace(this.wegaTimes,{ fileName : "source/PlayState.hx", lineNumber : 341, className : "PlayState", methodName : "takeAwayScore"});
 			PlayState.score -= 15 * this.wegaTimes;
 		}
 	}
@@ -5469,7 +5485,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		}
 		this.add(this.popUp);
 		flixel_tweens_FlxTween.tween(this.popUp,{ alpha : 0},0.6);
-		this.mickeySound = flixel_FlxG.sound.load("assets/sounds/mickey-mouse.ogg");
+		this.mickeySound = flixel_FlxG.sound.load("assets/sounds/mickey-mouse.mp3");
 		this.mickeySound.play();
 		new flixel_util_FlxTimer().start(this.time,function(tmr) {
 			_gthis.remove(_gthis.popUp);
@@ -5488,7 +5504,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		}
 		this.add(this.popUp);
 		flixel_tweens_FlxTween.tween(this.popUp,{ alpha : 0},0.6);
-		this.mickeySound = flixel_FlxG.sound.load("assets/sounds/scream.ogg");
+		this.mickeySound = flixel_FlxG.sound.load("assets/sounds/scream.mp3");
 		this.mickeySound.play();
 		flixel_FlxG.camera.shake();
 		new flixel_util_FlxTimer().start(this.time,function(tmr) {
@@ -5496,14 +5512,36 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		});
 	}
 	,loadUpVideo: function() {
-		var url = "https://youtu.be/UwGiXZOC-SQ";
-		if(!new EReg("^.\\w+?:/*","").match(url)) {
-			url = "https://" + url;
+		var fh = this.pickUp;
+		this.pickUp.set_x(fh.set_x(fh.x * -1));
+		var fh = this.pickUp;
+		this.pickUp.set_y(fh.set_y(fh.y * -1));
+		this.remove(this.pickUp);
+		this.pickUp.updateHitbox();
+		var Chance = 20;
+		if(Chance == null) {
+			Chance = 50;
 		}
-		openfl_Lib.getURL(new openfl_net_URLRequest(url),"_blank");
-		var nextState = new MainMenuState();
-		if(flixel_FlxG.game._state.switchTo(nextState)) {
-			flixel_FlxG.game._requestedState = nextState;
+		if(flixel_FlxG.random.float(0,100) < Chance) {
+			var url = "https://youtu.be/ChnqPMwQIKc";
+			if(!new EReg("^.\\w+?:/*","").match(url)) {
+				url = "https://" + url;
+			}
+			openfl_Lib.getURL(new openfl_net_URLRequest(url),"_blank");
+			var nextState = new MainMenuState();
+			if(flixel_FlxG.game._state.switchTo(nextState)) {
+				flixel_FlxG.game._requestedState = nextState;
+			}
+		} else {
+			var url = "https://youtu.be/UwGiXZOC-SQ";
+			if(!new EReg("^.\\w+?:/*","").match(url)) {
+				url = "https://" + url;
+			}
+			openfl_Lib.getURL(new openfl_net_URLRequest(url),"_blank");
+			var nextState = new MainMenuState();
+			if(flixel_FlxG.game._state.switchTo(nextState)) {
+				flixel_FlxG.game._requestedState = nextState;
+			}
 		}
 	}
 	,keepPlayerInBox: function(obj) {
@@ -5665,6 +5703,9 @@ ScoreState.prototype = $extend(flixel_FlxState.prototype,{
 		this.scorePreText.set_x(12);
 		this.scorePreText.set_y(12);
 		this.add(this.scorePreText);
+		if(flixel_FlxG.sound.music == null) {
+			flixel_FlxG.sound.playMusic("assets/music/welcome-old.mp3",1,true);
+		}
 	}
 	,update: function(elapsed) {
 		flixel_FlxState.prototype.update.call(this,elapsed);
@@ -75630,7 +75671,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 77486;
+	this.version = 121992;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
